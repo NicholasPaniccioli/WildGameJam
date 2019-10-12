@@ -129,6 +129,7 @@ MonoBehaviour:
     type: 3}
   leftEnd: {fileID: 3733335275588762567}
   rightEnd: {fileID: 805340714174237182}
+  horizontal: 1
 --- !u!1 &3733335275588762567
 GameObject:
   m_ObjectHideFlags: 0
