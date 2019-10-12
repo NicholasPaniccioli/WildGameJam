@@ -8,12 +8,13 @@ public class PlatformValues : MonoBehaviour
     //how many tiles wide the middle is
     public int middleWidth;
     private int currentWidth;
+    private bool currentHorizontal = false;
     public GameObject middlePrefab;
     public GameObject leftEnd;
     public GameObject rightEnd;
     private List<GameObject> middleBlocks = new List<GameObject>();
 
-    public bool horizontal = false;
+    public bool horizontal = true;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +25,11 @@ public class PlatformValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!Application.isPlaying && currentWidth != middleWidth)
+        if(!Application.isPlaying && (currentWidth != middleWidth || currentHorizontal != horizontal))
         {
             currentWidth = middleWidth;
+            currentHorizontal = horizontal;
+
             foreach (GameObject t in middleBlocks)
             {
                 DestroyImmediate(t);
