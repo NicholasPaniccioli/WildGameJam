@@ -7,15 +7,20 @@ public class PlatformValues : MonoBehaviour
 {
     //how many tiles wide the middle is
     public int middleWidth;
-    private int currentWidth;
-    private bool currentHorizontal = false;
     public GameObject middlePrefab;
+    //refrences to both end pieces
     public GameObject leftEnd;
     public GameObject rightEnd;
+    public bool horizontal = true;
+
+    //holds all middle blocks
     private List<GameObject> middleBlocks = new List<GameObject>();
+    //holds the platform's boxcollider
     private BoxCollider2D boxcollider;
 
-    public bool horizontal = true;
+    //track if the editor should update middle clones
+    private int currentWidth;
+    private bool currentHorizontal = false;
 
     // Start is called before the first frame update
     void Start()
