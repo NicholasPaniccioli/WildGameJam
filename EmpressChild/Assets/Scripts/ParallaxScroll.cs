@@ -15,6 +15,7 @@ public class ParallaxScroll : MonoBehaviour
 
         startPos = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
+        print("Length" + length);
     }
 
     // Update is called once per frame
@@ -22,7 +23,7 @@ public class ParallaxScroll : MonoBehaviour
     {
 
         float distance = (cam.transform.position.x * parallax);
-        float temp = (cam.transform.position.x * (1 - parallax));
+        float temp = (cam.transform.position.x * parallax);
         transform.position = new Vector3(startPos + distance, transform.position.y, transform.position.z);
 
 
