@@ -47,14 +47,10 @@ public class PlayerMovement : MonoBehaviour
                 grounded = false; //Since they jumped they are no longer grounded
             }
         }
-        if(Input.GetKey(KeyCode.A)) //LEFT
-        {
-            rb.AddForce(new Vector3(-2.0f, 0.0f, 0.0f) * 20, ForceMode2D.Force);
-        }
-        if(Input.GetKey(KeyCode.D)) //RIGHT
-        {
-            rb.AddForce(new Vector3(2.0f, 0.0f, 0.0f) * 20, ForceMode2D.Force);
-        }
+        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        rb.AddForce(new Vector3(input.x * speed, 0f, 0f), ForceMode2D.Force);
+
         if(climbing)
         {
             if (Input.GetKey(KeyCode.W))
