@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         jumpForce = 7.0f;
         jumpVec = new Vector3(0.0f, 3.0f, 0.0f);
 
-        pCollider = GetComponent<BoxCollider2D>();
+        pCollider = GetComponent<BoxCollider2D>(); 
     }
 
     // Update is called once per frame
