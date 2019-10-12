@@ -49,13 +49,13 @@ public class PlayerMovement : MonoBehaviour
 
 
         //checks if the player is on the ground
-        if(minY - 0.001 < floor.GetComponent<BoxCollider2D>().bounds.max.y && minY > floor.GetComponent<BoxCollider2D>().bounds.max.y)
+        if(minY - 0.001 < floor.GetComponent<BoxCollider2D>().bounds.max.y)
         {
             grounded = true;
         }
 
         //Checking for Key inputs
-        if(Input.GetKeyDown(KeyCode.W) && grounded == true) //JUMP
+        if(Input.GetKeyDown(KeyCode.W) && grounded == true && minY > floor.GetComponent<BoxCollider2D>().bounds.max.y) //JUMP
         {
             rb.AddForce(jumpVec * jumpForce, ForceMode2D.Impulse);
             grounded = false; //Since they jumped they are no longer grounded
