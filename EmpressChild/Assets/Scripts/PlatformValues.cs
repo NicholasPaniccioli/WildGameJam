@@ -26,43 +26,52 @@ public class PlatformValues : MonoBehaviour
     {
         if(!Application.isPlaying && currentWidth != middleWidth)
         {
+            currentWidth = middleWidth;
+            foreach (GameObject t in middleBlocks)
+            {
+                DestroyImmediate(t);
+            }
+            middleBlocks = new List<GameObject>();
+
+            float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x;
+            float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+
             if (horizontal)
             {
-                currentWidth = middleWidth;
-                foreach (GameObject t in middleBlocks)
-                {
-                    DestroyImmediate(t);
-                }
-                middleBlocks = new List<GameObject>();
                 rightEnd.transform.position = new Vector3(rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x * 1.5f, 0, 0) + transform.position;
-                float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x;
-                float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+
+                // Scale
+                midWorldWidth *= transform.localScale.x;
+
+                // Loop to add middle platforms
                 for (int midCount = 0; midCount < middleWidth; midCount++)
                 {
                     middleBlocks.Add(Instantiate(middlePrefab, transform));
                     middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 1.5f + (midWorldWidth * midCount), 0, 0) + transform.position;
                 }
+
+                // Translate the right platform to the end
                 rightEnd.transform.Translate(new Vector3(midWorldWidth * (middleWidth), 0, 0));
             }
 
             else
             {
-                currentWidth = middleWidth;
-                foreach (GameObject t in middleBlocks)
-                {
-                    DestroyImmediate(t);
-                }
-                middleBlocks = new List<GameObject>();
                 rightEnd.transform.position = new Vector3(rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x * 0.5f, rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y * 1f, 0) + transform.position;
-                float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x;
-                float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y;
+
+                // Scale
+                midWorldHeight *= transform.localScale.y;
+
+                // Loop to add middle platforms
                 for (int midCount = 0; midCount < middleWidth; midCount++)
                 {
                     middleBlocks.Add(Instantiate(middlePrefab, transform));
                     middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 0.5f, midWorldWidth * 1f + (midWorldWidth * midCount), 0) + transform.position;
                 }
+
+                // Translate the right platform to the end
                 rightEnd.transform.Translate(new Vector3(0, midWorldWidth * (middleWidth), 0));
             }
+
         }
     }
 }
