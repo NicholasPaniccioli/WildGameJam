@@ -11,12 +11,12 @@ public class PlatformValues : MonoBehaviour
     public GameObject middlePrefab;
     public GameObject leftEnd;
     public GameObject rightEnd;
-    private List<GameObject> middleBlocks;
+    private List<GameObject> middleBlocks = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        currentWidth = middleWidth;
+        
     }
 
     // Update is called once per frame
