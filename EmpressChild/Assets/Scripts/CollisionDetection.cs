@@ -6,19 +6,17 @@ public class CollisionDetection : MonoBehaviour
 {
     //Fields
     //Dimensions For Collision
-    float minY;
-    float minX;
-    float maxY;
-    float maxX;
-    GameObject attached;
-    Collider collider;
+    public static float minY;
+    public static float minX;
+    public static float maxY;
+    public static float maxX;
+    BoxCollider2D collider;
 
     // Start is called before the first frame update
     void Start()
     {
         //Starts getting the bounds of the GO
-        attached = this.gameObject;
-        collider = attached.GetComponent<Collider>();
+        collider = GetComponent<BoxCollider2D>();
         minY = collider.bounds.min.y;
         minX = collider.bounds.min.x;
         maxY = collider.bounds.max.y;

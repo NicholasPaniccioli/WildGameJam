@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2326226637935736334}
   - component: {fileID: 511412845280451287}
-  - component: {fileID: 2193404658399115166}
-  - component: {fileID: 2193404658399115139}
+  - component: {fileID: 494372400}
+  - component: {fileID: 494372397}
   m_Layer: 0
   m_Name: FloorPrefab
   m_TagString: Untagged
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &2193404658399115166
+--- !u!50 &494372400
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -102,7 +102,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &2193404658399115139
+--- !u!61 &494372397
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
