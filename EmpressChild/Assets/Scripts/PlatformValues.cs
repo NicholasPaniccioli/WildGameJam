@@ -13,6 +13,8 @@ public class PlatformValues : MonoBehaviour
     public GameObject rightEnd;
     private List<GameObject> middleBlocks = new List<GameObject>();
 
+    public bool horizontal = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,21 +26,43 @@ public class PlatformValues : MonoBehaviour
     {
         if(!Application.isPlaying && currentWidth != middleWidth)
         {
-            currentWidth = middleWidth;
-            foreach(GameObject t in middleBlocks)
+            if (horizontal)
             {
-                DestroyImmediate(t);
+                currentWidth = middleWidth;
+                foreach (GameObject t in middleBlocks)
+                {
+                    DestroyImmediate(t);
+                }
+                middleBlocks = new List<GameObject>();
+                rightEnd.transform.position = new Vector3(rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x * 1.5f, 0, 0) + transform.position;
+                float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x;
+                float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
+                for (int midCount = 0; midCount < middleWidth; midCount++)
+                {
+                    middleBlocks.Add(Instantiate(middlePrefab, transform));
+                    middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 1.5f + (midWorldWidth * midCount), 0, 0) + transform.position;
+                }
+                rightEnd.transform.Translate(new Vector3(midWorldWidth * (middleWidth), 0, 0));
             }
-            middleBlocks = new List<GameObject>();
-            rightEnd.transform.position = new Vector3(rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x *1.5f,0,0) + transform.position;
-            float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x;
-            float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
-            for (int midCount = 0; midCount < middleWidth; midCount++)
+
+            else
             {
-                middleBlocks.Add(Instantiate(middlePrefab, transform));
-                middleBlocks[midCount].transform.position = new Vector3(midWorldWidth *1.5f + (midWorldWidth * midCount), 0, 0) + transform.position;
+                currentWidth = middleWidth;
+                foreach (GameObject t in middleBlocks)
+                {
+                    DestroyImmediate(t);
+                }
+                middleBlocks = new List<GameObject>();
+                rightEnd.transform.position = new Vector3(rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x * 0.5f, rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y * 1f, 0) + transform.position;
+                float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x;
+                float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y * transform.localScale.y;
+                for (int midCount = 0; midCount < middleWidth; midCount++)
+                {
+                    middleBlocks.Add(Instantiate(middlePrefab, transform));
+                    middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 0.5f, midWorldWidth * 1f + (midWorldWidth * midCount), 0) + transform.position;
+                }
+                rightEnd.transform.Translate(new Vector3(0, midWorldWidth * (middleWidth), 0));
             }
-            rightEnd.transform.Translate(new Vector3(midWorldWidth * (middleWidth), 0, 0));
         }
     }
 }
