@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         //checks if the player is on the ground
-        if(minY - 0.001 < floor.GetComponent<BoxCollider2D>().bounds.max.y)
+        if(minY - 0.001 < floor.GetComponent<BoxCollider2D>().bounds.max.y && minY > floor.GetComponent<BoxCollider2D>().bounds.max.y)
         {
             grounded = true;
         }
