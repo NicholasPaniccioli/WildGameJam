@@ -13,13 +13,14 @@ public class PlatformValues : MonoBehaviour
     public GameObject leftEnd;
     public GameObject rightEnd;
     private List<GameObject> middleBlocks = new List<GameObject>();
+    private BoxCollider2D boxcollider;
 
     public bool horizontal = true;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        boxcollider = gameObject.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -56,6 +57,9 @@ public class PlatformValues : MonoBehaviour
 
                 // Translate the right platform to the end
                 rightEnd.transform.Translate(new Vector3(midWorldWidth * (middleWidth), 0, 0));
+
+                boxcollider.size = new Vector2(midWorldWidth*(middleWidth+2), 1);
+                boxcollider.offset = new Vector2(boxcollider.size.x / 2, 0);
             }
 
             else
@@ -74,6 +78,9 @@ public class PlatformValues : MonoBehaviour
 
                 // Translate the right platform to the end
                 rightEnd.transform.Translate(new Vector3(0, midWorldWidth * (middleWidth), 0));
+
+                boxcollider.size = new Vector2(1 , midWorldWidth * (middleWidth + 2));
+                boxcollider.offset = new Vector2(0.5f , (boxcollider.size.y -1)/ 2);
             }
         }
     }
