@@ -8,7 +8,7 @@ public class Vine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pm = GameObject.Find("PlayerPrefab").GetComponent<PlayerMovement>();
+        pm = GameObject.Find("Protagonist").GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
