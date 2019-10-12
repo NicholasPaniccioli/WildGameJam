@@ -19,7 +19,7 @@ public class PlatformValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -30,10 +30,11 @@ public class PlatformValues : MonoBehaviour
             currentWidth = middleWidth;
             currentHorizontal = horizontal;
 
-            foreach (GameObject t in middleBlocks)
+            while (transform.childCount > 2)
             {
-                DestroyImmediate(t);
+                DestroyImmediate(transform.GetChild(transform.childCount - 1).gameObject);
             }
+
             middleBlocks = new List<GameObject>();
 
             float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x;
@@ -74,7 +75,6 @@ public class PlatformValues : MonoBehaviour
                 // Translate the right platform to the end
                 rightEnd.transform.Translate(new Vector3(0, midWorldWidth * (middleWidth), 0));
             }
-
         }
     }
 }
