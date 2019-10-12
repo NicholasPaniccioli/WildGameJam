@@ -778,10 +778,9 @@ GameObject:
   - component: {fileID: 340410288733208887}
   - component: {fileID: 340410288733208886}
   - component: {fileID: 340410288733208880}
-  - component: {fileID: 340410288733208881}
   m_Layer: 0
   m_Name: Protagonist
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -838,7 +837,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 4430362503795479629}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 100c5caa829a5d74880498e78784b67d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -868,21 +867,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 0
+  climbSpeed: 2.5
   jumpVec: {x: 0, y: 0, z: 0}
   grounded: 0
-  speed: 100
---- !u!114 &340410288733208881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4430362503795479629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2520fc904ec488438c522c09aaa630f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  canClimb: 0
+  climbing: 0
+  speed: 40
 --- !u!1 &4605800879677653243
 GameObject:
   m_ObjectHideFlags: 0

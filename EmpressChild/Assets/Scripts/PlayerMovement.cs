@@ -8,13 +8,13 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb; //The RB of the GO
     public float jumpForce; //The power the player has on their jump
-    public float climbSpeed; //How fast the player is able to climb
+    public float climbSpeed = 2.5f; //How fast the player is able to climb
     public Vector3 jumpVec; //Vector for the jumpforce to be applied to
     public bool grounded; //Is the player on the ground
     public bool canClimb; //Is the player on touching a vine?
     public bool climbing; //Is the player climbing?
 
-    public float speed = 100f;
+    public float speed = 40f;
 
     private BoxCollider2D pCollider;
 
