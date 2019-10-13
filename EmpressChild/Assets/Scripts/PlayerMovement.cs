@@ -73,10 +73,12 @@ public class PlayerMovement : MonoBehaviour
             case PlayerState.Jumping:
                 Move();
                 CheckIfFalling();
+                TryStartClimb();
                 break;
             case PlayerState.Falling:
                 Move();
-                if(Mathf.Abs(rb.velocity.y) <= .025f)
+                TryStartClimb();
+                if (Mathf.Abs(rb.velocity.y) <= .025f)
                 {
                     playerState = PlayerState.Idle;
                 }
