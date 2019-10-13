@@ -8,6 +8,8 @@ public class SpawnTree : MonoBehaviour
     private CanSpawnTrees interacter; //the class that will interact with this tree spawner
     public GameObject tree; //holds a prefab of the tree that should be spawned
     public float treeHight;
+    private Vector3 velocity;
+    public float growTime;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +19,16 @@ public class SpawnTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (growTime > 0)
+        {
+            float dTime = Time.deltaTime;
+            growTime -= dTime;
+            transform.Translate(velocity * dTime);
+            if(growTime <= 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -44,11 +55,10 @@ public class SpawnTree : MonoBehaviour
         if (!hasTree)
         {
             hasTree = true;
-            GameObject vine = Instantiate(tree, transform.position + new Vector3(0, -tree.GetComponent<SpriteRenderer>().bounds.extents.y, 0), Quaternion.identity);
-            //    vine.GetComponent<Vine>().growTime = treeHight / 2;
-            //    ParticleSystem ps = gameObject.GetComponent<ParticleSystem>();
-            //    var main = ps.main;
-            //    main.duration = treeHight / 2f;
+            GameObject vine = Instantiate(tree, transform.position + new Vector3(0, -tree.GetComponent<SpriteRenderer>().bounds.extents.y -.4f, 1), Quaternion.identity);
+            vine.GetComponent<Vine>().heightPercent = treeHight;
+            growTime = .5f;
+            velocity = new Vector3(0, -gameObject.GetComponent<SpriteRenderer>().bounds.size.y / growTime, 0);
         }
     }
 }
