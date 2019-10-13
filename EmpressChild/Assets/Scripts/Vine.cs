@@ -5,16 +5,31 @@ using UnityEngine;
 public class Vine : MonoBehaviour
 {
     private PlayerMovement pm;
+    private GameObject spriteMask;
+    private Vector3 velocity;
+    public float growTime;
     // Start is called before the first frame update
     void Start()
     {
         pm = GameObject.Find("Protagonist").GetComponent<PlayerMovement>();
+        spriteMask = transform.GetChild(0).gameObject;
+        velocity = new Vector3(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y / growTime, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(growTime>0)
+        {
+            float dTime = Time.deltaTime;
+            growTime -= dTime;
+            transform.Translate(velocity * dTime);
+            spriteMask.transform.Translate(-1 * velocity * dTime);
+            if(growTime <= 0)
+            {
+                gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)

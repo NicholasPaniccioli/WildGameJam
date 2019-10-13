@@ -6,17 +6,21 @@ public class PlayerMovement : MonoBehaviour
 {
     //Fields
 
-    private Rigidbody2D rb; //The RB of the GO
+    //Attributes
     public float jumpForce; //The power the player has on their jump
     public float climbSpeed = 2.5f; //How fast the player is able to climb
     public Vector3 jumpVec; //Vector for the jumpforce to be applied to
+    public float speed = 40f;
+
+    //Components
+    private Rigidbody2D rb; //The RB of the GO
+    private BoxCollider2D pCollider;
+    private CanSpawnTrees treeSpawn;
+
+    //Flags
     public bool grounded; //Is the player on the ground
     public bool canClimb; //Is the player on touching a vine?
     public bool climbing; //Is the player climbing?
-
-    public float speed = 40f;
-
-    private BoxCollider2D pCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
         jumpVec = new Vector3(0.0f, 6.0f, 0.0f);
 
         pCollider = GetComponent<BoxCollider2D>();
+        treeSpawn = GetComponent<CanSpawnTrees>();
     }
 
     // Update is called once per frame
@@ -33,13 +38,14 @@ public class PlayerMovement : MonoBehaviour
     {
 
         //Checking for Key inputs
-        if (Input.GetKeyDown(KeyCode.W)) //JUMP
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) //JUMP
         {
             if (canClimb)
             {
                 rb.gravityScale = 0f;
                 //pRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
                 climbing = true;
+                rb.velocity = new Vector2();
             }
             else if (grounded)
             {
@@ -47,25 +53,40 @@ public class PlayerMovement : MonoBehaviour
                 grounded = false; //Since they jumped they are no longer grounded
             }
         }
+        else if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.Space))
+        {
+            if (canClimb && !climbing)
+            {
+                rb.gravityScale = 0f;
+                //pRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
+                climbing = true;
+                rb.velocity = new Vector2();
+            }
+        }
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         rb.AddForce(new Vector3(input.x * speed, 0f, 0f), ForceMode2D.Force);
 
+        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            treeSpawn.SpawnTree();
+        }
+
         if(climbing)
         {
-            if (Input.GetKey(KeyCode.W))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(new Vector2(0, climbSpeed * Time.deltaTime));
             }
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
                 transform.Translate(new Vector2(-climbSpeed * Time.deltaTime/ 3 * 2, 0));
             }
-            if (Input.GetKey(KeyCode.D)) 
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) 
             {
                 transform.Translate(new Vector2(climbSpeed * Time.deltaTime / 3 * 2, 0));
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
             {
                 EndClimb();
             }
