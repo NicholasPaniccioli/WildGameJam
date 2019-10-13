@@ -34,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         boxActive = false;
     }
 
+    /*
     public void TestDialogue1()
     {
         dialogueBox.NewDialogue(new DialogueBoxDetails() { dialogueString = "Hey Howdy!", displayTime = 2f });
@@ -59,18 +60,27 @@ public class DialogueManager : MonoBehaviour
         dialogueQueue.Add(new DialogueBoxDetails() { dialogueString = dialogue, displayTime = 6f });
         ActivateDialogueBox();
     }
+    */
 
-    // Swaps the active dialogue box
-    public void AddDialoguePanelSwap(GameObject newDialoguePanel)
+    // Creates a dialogue box into the queue with the given details
+    public void CreateDialogueBox(DialogueBoxDetails dialogueDetails)
     {
-        dialogueQueue[dialogueQueue.Count - 1].dialoguePanelObject = newDialoguePanel;// (new DialogueBoxDetails() { dialoguePanelObject = newDialoguePanel, dialogueString = "", displayTime = 0f });
+        dialogueQueue.Add(dialogueDetails);
+        ActivateDialogueBox();
+    }
+
+    /*
+    // Swaps the active dialogue box
+    public void AddDialoguePanelSwap(GameObject dialoguePrefab)
+    {
+        dialogueQueue[dialogueQueue.Count - 1].prefab = dialoguePrefab;// (new DialogueBoxDetails() { dialoguePanelObject = newDialoguePanel, dialogueString = "", displayTime = 0f });
         ActivateDialogueBox();
         /*
         dialogueBox.dialoguePanelObject = newDialoguePanel;
         dialogueBox.dialogue = newDialoguePanel.transform.Find("Text").GetComponent<Text>();
-        */
+        
     }
-
+    */
 
     public void ActivateDialogueBox()
     {
@@ -83,7 +93,7 @@ public class DialogueManager : MonoBehaviour
     }
     IEnumerator ActiveBox()
     {
-        yield return new WaitForSeconds(dialogueQueue[0].displayTime);
+        yield return new WaitForSeconds(dialogueBox.displayTime);
         CloseCurrentPanel();
     }
 
