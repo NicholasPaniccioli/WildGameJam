@@ -12,6 +12,7 @@ public class PlatformValues : MonoBehaviour
     public GameObject leftEnd;
     public GameObject rightEnd;
     public bool horizontal = true;
+    public bool runScript = true;
 
     //holds all middle blocks
     private List<GameObject> middleBlocks = new List<GameObject>();
@@ -31,7 +32,7 @@ public class PlatformValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!Application.isPlaying && (currentWidth != middleWidth || currentHorizontal != horizontal))
+        if(runScript && !Application.isPlaying && (currentWidth != middleWidth || currentHorizontal != horizontal))
         {
             currentWidth = middleWidth;
             currentHorizontal = horizontal;
