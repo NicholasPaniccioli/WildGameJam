@@ -43,7 +43,7 @@ public class SpawnTree : MonoBehaviour
         if (!hasTree)
         {
             hasTree = true;
-            Instantiate(tree, transform.position + new Vector3(0,-tree.GetComponent<SpriteRenderer>().bounds.extents.y,0), Quaternion.identity);
+            Instantiate(tree, transform.position + new Vector3(0,-tree.GetComponent<SpriteRenderer>().bounds.extents.y,-2), Quaternion.identity);
         }
     }
 }

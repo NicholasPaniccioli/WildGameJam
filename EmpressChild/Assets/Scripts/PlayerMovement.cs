@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce; //The power the player has on their jump
     public float climbSpeed = 2.5f; //How fast the player is able to climb
     public Vector3 jumpVec; //Vector for the jumpforce to be applied to
-    public float speed = 40f;
+    public float speed;
 
     //Components
     private Rigidbody2D rb; //The RB of the GO
@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpForce = 10.0f;
         jumpVec = new Vector3(0.0f, 6.0f, 0.0f);
 
         pCollider = GetComponent<BoxCollider2D>();
@@ -67,13 +66,14 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(new Vector3(input.x * speed, 0f, 0f), ForceMode2D.Force);
 
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.KeypadEnter))
         {
             treeSpawn.SpawnTree();
         }
 
         if(climbing)
         {
+            rb.velocity = new Vector2();
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(new Vector2(0, climbSpeed * Time.deltaTime));
@@ -109,6 +109,8 @@ public class PlayerMovement : MonoBehaviour
         {
             grounded = true;
         }
+        rb.drag = 10f;
+        speed = 50;
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -122,5 +124,7 @@ public class PlayerMovement : MonoBehaviour
         {
             canClimb = false;
         }
+        rb.drag = .2f;
+        speed = 10;
     }
 }
