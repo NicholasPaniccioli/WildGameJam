@@ -25,6 +25,7 @@ public class AnimationManager : MonoBehaviour
                 animator.SetBool("Running", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Jumping", false);
+                animator.SetBool("Falling", false);
                 break;
 
             case PlayerMovement.PlayerState.Jumping:
@@ -41,6 +42,7 @@ public class AnimationManager : MonoBehaviour
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Climbing", false);
+                animator.SetBool("Running", false);
                 break;
 
             case PlayerMovement.PlayerState.ActivelyClimbing:
