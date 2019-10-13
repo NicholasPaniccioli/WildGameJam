@@ -38,7 +38,7 @@ public class Vine : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            if(pm.climbing)
+            if(pm.playerState == PlayerMovement.PlayerState.Climbing)
             {
                 pm.EndClimb();
             }
