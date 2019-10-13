@@ -5,17 +5,19 @@ using UnityEngine.UI;
 
 public class DialogueBoxDetails
 {
-    public GameObject dialoguePanelObject;
-    public string dialogueString;
-    public float displayTime;
+    public GameObject prefab;
+    public string text;
 }
 
 public class DialogueBox : MonoBehaviour
 {
+    public GameObject canvas;
     public Text dialogue;
-    public float displayTime;
+    public float displayTime = 3.5f;
 
-    public GameObject dialoguePanelObject;
+    public GameObject dialogueObject;
+    public GameObject currentDialoguePanelPrefab;
+    public GameObject defaultDialoguePanelPrefab;
 
 
     private static DialogueBox dialogueBox;
@@ -34,17 +36,15 @@ public class DialogueBox : MonoBehaviour
 
 
     public void NewDialogue(DialogueBoxDetails details)
-    {
-        if (details.dialoguePanelObject != null)
-        {
-            this.dialoguePanelObject = details.dialoguePanelObject;
-            this.dialogue = details.dialoguePanelObject.transform.Find("Text").GetComponent<Text>();
-        }
+    { 
+        
+        dialogueObject = GameObject.Instantiate(details.prefab, Vector3.zero, Quaternion.identity);
+        dialogueObject.transform.parent = canvas.transform;
 
-        dialoguePanelObject.SetActive(true);
+        dialogueObject.SetActive(true);
 
-        this.dialogue.text = details.dialogueString;
-        this.displayTime = details.displayTime;
+        this.dialogue.text = details.text;
+
     }
 
     // Update is called once per frame
@@ -55,6 +55,6 @@ public class DialogueBox : MonoBehaviour
 
     public void ClosePanel()
     {
-        dialoguePanelObject.SetActive(false);
+        GameObject.Destroy(dialogueObject);
     }
 }

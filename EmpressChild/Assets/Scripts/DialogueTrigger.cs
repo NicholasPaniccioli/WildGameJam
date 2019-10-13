@@ -7,6 +7,9 @@ public class DialogueTrigger : MonoBehaviour
     public DialogueManager dialogueManager;
     public bool aldreadyTriggered = false;
 
+    public GameObject dialgouePrefab;
+    public string dialogue;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (!aldreadyTriggered)
         {
-            dialogueManager.MediumDialogueBox("Test 1");
+            dialogueManager.CreateDialogueBox(new DialogueBoxDetails() { prefab = dialgouePrefab, text = dialogue });
             aldreadyTriggered = true;
         }
     }
