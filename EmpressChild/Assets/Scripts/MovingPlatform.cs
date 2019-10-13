@@ -47,12 +47,10 @@ public class MovingPlatform : MonoBehaviour
             moveTime -= dTime;
             platform.transform.Translate(velocity * dTime);
             
-            /*
-            if (growTime <= 0)
+            if(moveTime <= 0)
             {
-                platform.GetComponent<BoxCollider2D>().enabled = false;
+                Destroy(gameObject);
             }
-            */
         }
     }
 
