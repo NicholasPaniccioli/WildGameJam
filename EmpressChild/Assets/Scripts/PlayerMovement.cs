@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
         Running,
         Jumping,
         Climbing,
+        ActivelyClimbing,
         Falling
 
     }
@@ -54,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
                 TryJump();
                 TryStartClimb();
                 Move();
-                if (Mathf.Abs(rb.velocity.x) > .025f)
+                if (Mathf.Abs(rb.velocity.x) > .75f)
                 {
                     playerState = PlayerState.Running;
                 }
@@ -64,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
                 TryJump();
                 TryStartClimb();
                 Move();
-                if (Mathf.Abs(rb.velocity.x) <= .025f)
+                if (Mathf.Abs(rb.velocity.x) <= .75f)
                 {
                     playerState = PlayerState.Idle;
                 }
@@ -73,15 +74,18 @@ public class PlayerMovement : MonoBehaviour
             case PlayerState.Jumping:
                 Move();
                 CheckIfFalling();
+                TryStartClimb();
                 break;
             case PlayerState.Falling:
                 Move();
-                if(Mathf.Abs(rb.velocity.y) <= .025f)
+                TryStartClimb();
+                if (Mathf.Abs(rb.velocity.y) <= .025f)
                 {
                     playerState = PlayerState.Idle;
                 }
                 break;
             case PlayerState.Climbing:
+            case PlayerState.ActivelyClimbing:
                 Climb();
                 break;
         }
@@ -150,14 +154,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(new Vector2(0, climbSpeed * Time.deltaTime));
+            playerState = PlayerState.ActivelyClimbing;
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(new Vector2(-climbSpeed * Time.deltaTime / 3 * 2, 0));
+            playerState = PlayerState.ActivelyClimbing;
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(new Vector2(climbSpeed * Time.deltaTime / 3 * 2, 0));
+            playerState = PlayerState.ActivelyClimbing;
+        }
+        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        {
+            playerState = PlayerState.Climbing;
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
