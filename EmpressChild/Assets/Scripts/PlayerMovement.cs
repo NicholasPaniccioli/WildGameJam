@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Mathf.Abs(rb.velocity.x) <= .75f)
                 {
                     playerState = PlayerState.Idle;
+                    rb.velocity = new Vector2(0, rb.velocity.y);
                 }
                 CheckIfFalling();
                 break;
