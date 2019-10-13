@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public enum FacingDirection { Left, Right }
     //Fields
 
     //Attributes
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float climbSpeed = 2.5f; //How fast the player is able to climb
     public Vector3 jumpVec; //Vector for the jumpforce to be applied to
     public float speed = 40f;
+    public float maxVelocityX = 3f;
+    public FacingDirection facingDirection = FacingDirection.Right;
 
     //Components
     private Rigidbody2D rb; //The RB of the GO
@@ -26,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpForce = 10.0f;
+        jumpForce = 4.0f;
         jumpVec = new Vector3(0.0f, 6.0f, 0.0f);
 
         pCollider = GetComponent<BoxCollider2D>();
@@ -40,14 +43,7 @@ public class PlayerMovement : MonoBehaviour
         //Checking for Key inputs
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) //JUMP
         {
-            if (canClimb)
-            {
-                rb.gravityScale = 0f;
-                //pRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-                climbing = true;
-                rb.velocity = new Vector2();
-            }
-            else if (grounded)
+            if (grounded && !canClimb)
             {
                 rb.AddForce(jumpVec * jumpForce, ForceMode2D.Impulse);
                 grounded = false; //Since they jumped they are no longer grounded
@@ -66,14 +62,16 @@ public class PlayerMovement : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         rb.AddForce(new Vector3(input.x * speed, 0f, 0f), ForceMode2D.Force);
+        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxVelocityX, maxVelocityX), rb.velocity.y); 
 
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.KeypadEnter))
         {
             treeSpawn.SpawnTree();
         }
 
         if(climbing)
         {
+            rb.velocity = new Vector2();
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(new Vector2(0, climbSpeed * Time.deltaTime));
@@ -91,6 +89,11 @@ public class PlayerMovement : MonoBehaviour
                 EndClimb();
             }
         }
+        if(Mathf.Abs(rb.velocity.x) > .025)
+        facingDirection = rb.velocity.x > 0 ? FacingDirection.Right : FacingDirection.Left;
+        transform.localScale = facingDirection == FacingDirection.Right ? new Vector3(.15f, .15f, 1f) : new Vector3(-.15f, .15f, 1f);
+        
+
     }
 
     public void EndClimb()
@@ -105,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         //check to see if the collider is a platfrom, and make sure it didn't collide with the side of the platfrom
         print("min pcollider: " + pCollider.bounds.min.y + " max collider: " + collision.collider.bounds.max.y);
         if(collision.gameObject.tag == "Platform" && 
-            pCollider.bounds.min.y >= collision.collider.bounds.max.y - .02f)
+            pCollider.bounds.min.y >= collision.collider.bounds.max.y - .05f)
         {
             grounded = true;
         }

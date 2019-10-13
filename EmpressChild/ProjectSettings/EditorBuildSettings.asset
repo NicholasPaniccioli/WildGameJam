@@ -8,4 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MovingPlatformTest.unity
+    guid: 05391daf2a080ff45b1500d9bc8bf0f8
+  - enabled: 1
+    path: Assets/Scenes/InsideBuilding.unity
+    guid: 85bd5199f117ae142b8cb11925f05f83
+  - enabled: 1
+    path: Assets/Scenes/Parallax_Testing.unity
+    guid: 94c9e74d08c0b62418d85a564e12720f
+  - enabled: 1
+    path: Assets/Scenes/Rigged_Player.unity
+    guid: 33c4f2fb5c84b954bb3d414239e1cb69
+  - enabled: 1
+    path: Assets/Scenes/Testing Ground.unity
+    guid: f7465dc5ea9333946b3175d046a11799
   m_configObjects: {}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -7848913224804837296}
   - component: {fileID: -520741071190409489}
   m_Layer: 0
-  m_Name: GrassPlatform
+  m_Name: Pavment
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3618617995343910678}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.182197, y: 3.8624518, z: 0}
+  m_LocalPosition: {x: -8.182197, y: 3.8624518, z: 4}
   m_LocalScale: {x: 0.15, y: 0.15, z: 1}
   m_Children:
   - {fileID: 2684026923594567375}
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   middleWidth: 0
-  middlePrefab: {fileID: 7629073386179413506, guid: 7b33316257e18a04c8bfe31240273f37,
+  middlePrefab: {fileID: 7629073386179413506, guid: b8449b96afd7d794ba08184956bbdaaf,
     type: 3}
   leftEnd: {fileID: 7145608261844684878}
   rightEnd: {fileID: 8160328082089013753}
@@ -103,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7145608261844684878}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.21, y: 0, z: 0}
+  m_LocalPosition: {x: 2.68, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7098821029281132604}
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a971e91b789edca42a74727380a89a76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4954d195b580fe4996281ed1474afa9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160328082089013753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5740004, y: 0, z: 0}
+  m_LocalPosition: {x: 7.573998, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7098821029281132604}
@@ -225,7 +225,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a971e91b789edca42a74727380a89a76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f4954d195b580fe4996281ed1474afa9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

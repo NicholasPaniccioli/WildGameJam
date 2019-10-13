@@ -69,8 +69,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ff92d552f1aefda4080d730195c85718, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 6922c65f22acc6b4f91c9a82ebc35244, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -94,18 +94,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.074414015, y: -0.14882803}
+  m_Offset: {x: 0.074414015, y: 0.93482745}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.12, y: 4.07}
+    oldSize: {x: 4.92, y: 3.52}
     newSize: {x: 6.12, y: 4.07}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5.227031, y: 2.5817199}
+  m_Size: {x: 5.227031, y: 5.3855867}
   m_EdgeRadius: 0
 --- !u!114 &8718742073179712694
 MonoBehaviour:
@@ -120,3 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 4560667063714814211, guid: 1aab2ed13c4662d409d72590d0970e89, type: 3}
+  treeHight: 0.5

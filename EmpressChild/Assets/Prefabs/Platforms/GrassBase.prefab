@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -7848913224804837296}
   - component: {fileID: -520741071190409489}
   m_Layer: 0
-  m_Name: GrassPlatform
+  m_Name: GrassBase
   m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   middleWidth: 0
-  middlePrefab: {fileID: 7629073386179413506, guid: 7b33316257e18a04c8bfe31240273f37,
+  middlePrefab: {fileID: 7629073386179413506, guid: dd23c20b89db4454cbbddd772ad0b942,
     type: 3}
   leftEnd: {fileID: 7145608261844684878}
   rightEnd: {fileID: 8160328082089013753}
@@ -65,7 +65,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 4.92, y: 0}
+  m_Offset: {x: 4.83, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.84, y: 4.165}
+  m_Size: {x: 9.66, y: 4.333}
   m_EdgeRadius: 0
 --- !u!1 &7145608261844684878
 GameObject:
@@ -103,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7145608261844684878}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.21, y: 0, z: 0}
+  m_LocalPosition: {x: 2.31, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7098821029281132604}
@@ -146,7 +146,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a971e91b789edca42a74727380a89a76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3704071d66691d243b0b8bcc7eb5349b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8160328082089013753}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.5740004, y: 0, z: 0}
+  m_LocalPosition: {x: 7.1819997, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7098821029281132604}
@@ -225,7 +225,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a971e91b789edca42a74727380a89a76, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3704071d66691d243b0b8bcc7eb5349b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0

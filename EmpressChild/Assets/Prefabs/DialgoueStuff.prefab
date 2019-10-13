@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 5345520900326336460}
   dialogue: {fileID: 0}
-  displayTime: 3.5
+  displayTime: 5
   dialogueObject: {fileID: 0}
 --- !u!1 &5345520899563004968
 GameObject:
