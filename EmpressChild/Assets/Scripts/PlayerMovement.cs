@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public enum FacingDirection { Left, Right }
     //Fields
 
     //Attributes
@@ -11,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
     public float climbSpeed = 2.5f; //How fast the player is able to climb
     public Vector3 jumpVec; //Vector for the jumpforce to be applied to
     public float speed = 40f;
+    public float maxVelocityX = 3f;
+    public FacingDirection facingDirection = FacingDirection.Right;
 
     //Components
     private Rigidbody2D rb; //The RB of the GO
@@ -59,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
         rb.AddForce(new Vector3(input.x * speed, 0f, 0f), ForceMode2D.Force);
+        rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x, -maxVelocityX, maxVelocityX), rb.velocity.y); 
 
         if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.KeypadEnter))
         {
@@ -85,6 +89,11 @@ public class PlayerMovement : MonoBehaviour
                 EndClimb();
             }
         }
+        if(Mathf.Abs(rb.velocity.x) > .025)
+        facingDirection = rb.velocity.x > 0 ? FacingDirection.Right : FacingDirection.Left;
+        transform.localScale = facingDirection == FacingDirection.Right ? new Vector3(.15f, .15f, 1f) : new Vector3(-.15f, .15f, 1f);
+        
+
     }
 
     public void EndClimb()
