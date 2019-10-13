@@ -154,21 +154,25 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(new Vector2(0, climbSpeed * Time.deltaTime));
-            playerState = PlayerState.ActivelyClimbing;
+            //if (playerState == PlayerState.Climbing)
+                playerState = PlayerState.ActivelyClimbing;
         }
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(new Vector2(-climbSpeed * Time.deltaTime / 3 * 2, 0));
-            playerState = PlayerState.ActivelyClimbing;
+            //if (playerState == PlayerState.Climbing)
+                playerState = PlayerState.ActivelyClimbing;
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.Translate(new Vector2(climbSpeed * Time.deltaTime / 3 * 2, 0));
-            playerState = PlayerState.ActivelyClimbing;
+            //if(playerState == PlayerState.Climbing)
+                playerState = PlayerState.ActivelyClimbing;
         }
         if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
-            playerState = PlayerState.Climbing;
+            //if (playerState == PlayerState.ActivelyClimbing)
+                playerState = PlayerState.Climbing;
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
@@ -213,6 +217,7 @@ public class PlayerMovement : MonoBehaviour
         else if (collision.gameObject.tag == "Vine")
         {
             canClimb = false;
+            playerState = PlayerState.Falling;
         }
     }
 }
