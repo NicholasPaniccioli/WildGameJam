@@ -44,6 +44,7 @@ public class SpawnTree : MonoBehaviour
         {
             hasTree = true;
             Instantiate(tree, transform.position + new Vector3(0,-tree.GetComponent<SpriteRenderer>().bounds.extents.y,0), Quaternion.identity);
+            gameObject.GetComponent<ParticleSystem>().Play();
         }
     }
 }
