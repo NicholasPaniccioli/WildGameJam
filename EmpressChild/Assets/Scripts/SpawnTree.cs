@@ -7,6 +7,7 @@ public class SpawnTree : MonoBehaviour
     private bool hasTree = false;
     private CanSpawnTrees interacter; //the class that will interact with this tree spawner
     public GameObject tree; //holds a prefab of the tree that should be spawned
+    public float treeHight;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +44,11 @@ public class SpawnTree : MonoBehaviour
         if (!hasTree)
         {
             hasTree = true;
-            Instantiate(tree, transform.position + new Vector3(0,-tree.GetComponent<SpriteRenderer>().bounds.extents.y,0), Quaternion.identity);
+            GameObject vine = Instantiate(tree, transform.position + new Vector3(0, -tree.GetComponent<SpriteRenderer>().bounds.extents.y, 0), Quaternion.identity);
+            //    vine.GetComponent<Vine>().growTime = treeHight / 2;
+            //    ParticleSystem ps = gameObject.GetComponent<ParticleSystem>();
+            //    var main = ps.main;
+            //    main.duration = treeHight / 2f;
         }
     }
 }
