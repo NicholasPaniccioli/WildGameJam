@@ -105,7 +105,7 @@ public class PlayerMovement : MonoBehaviour
         //check to see if the collider is a platfrom, and make sure it didn't collide with the side of the platfrom
         print("min pcollider: " + pCollider.bounds.min.y + " max collider: " + collision.collider.bounds.max.y);
         if(collision.gameObject.tag == "Platform" && 
-            pCollider.bounds.min.y >= collision.collider.bounds.max.y - .02f)
+            pCollider.bounds.min.y >= collision.collider.bounds.max.y - .05f)
         {
             grounded = true;
         }
