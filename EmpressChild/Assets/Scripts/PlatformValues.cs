@@ -97,7 +97,7 @@ public class PlatformValues : MonoBehaviour
 
                 midWorldWidth /= transform.localScale.x;
                 midWorldHeight /= transform.localScale.y;
-                boxcollider.size = new Vector2(midWorldHeight * .7f, midWorldWidth * (middleWidth + 2));
+                boxcollider.size = new Vector2(midWorldHeight * 1f, midWorldWidth * (middleWidth + 2));
                 boxcollider.offset = new Vector2(midWorldHeight/2 , (boxcollider.size.y -4)/ 2);
             }
         }
