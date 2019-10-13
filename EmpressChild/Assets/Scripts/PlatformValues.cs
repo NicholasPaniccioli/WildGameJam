@@ -43,9 +43,8 @@ public class PlatformValues : MonoBehaviour
 
             middleBlocks = new List<GameObject>();
 
-            //subtract a small number so that platforms will overlap slightly
-            float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x -.01f;
-            float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y - .01f;
+            float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x;
+            float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y;
 
             if (horizontal)
             {
@@ -60,7 +59,7 @@ public class PlatformValues : MonoBehaviour
                 for (int midCount = 0; midCount < middleWidth; midCount++)
                 {
                     middleBlocks.Add(Instantiate(middlePrefab, transform));
-                    middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 1.5f + (midWorldWidth * midCount) , 0, 0) + transform.position;
+                    middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 1.5f + (midWorldWidth * midCount), 0, 0) + transform.position;
                     middleBlocks[midCount].transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
 
@@ -85,7 +84,7 @@ public class PlatformValues : MonoBehaviour
                 for (int midCount = 0; midCount < middleWidth; midCount++)
                 {
                     middleBlocks.Add(Instantiate(middlePrefab, transform));
-                    middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 0.5f, midWorldWidth * 1f + (midWorldWidth * midCount) , 0) + transform.position;
+                    middleBlocks[midCount].transform.position = new Vector3(midWorldWidth * 0.5f, midWorldWidth * 1f + (midWorldWidth * midCount), 0) + transform.position;
                     middleBlocks[midCount].transform.rotation = Quaternion.Euler(0, 0, 90);
                 }
 
