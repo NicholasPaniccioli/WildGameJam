@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Testing Ground.unity
     guid: f7465dc5ea9333946b3175d046a11799
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel 2.unity
+    guid: 28fafb60073a8a94ca7f6804d551ad71
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel 1.unity
+    guid: 73090753a24f6244e9e1301ff2f30664
   m_configObjects: {}
