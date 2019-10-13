@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        jumpForce = 10.0f;
+        jumpForce = 4.0f;
         jumpVec = new Vector3(0.0f, 6.0f, 0.0f);
 
         pCollider = GetComponent<BoxCollider2D>();
