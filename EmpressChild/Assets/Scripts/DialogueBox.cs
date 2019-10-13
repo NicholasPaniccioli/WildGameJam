@@ -16,9 +16,10 @@ public class DialogueBox : MonoBehaviour
     public float displayTime = 3.5f;
 
     public GameObject dialogueObject;
+    /*
     public GameObject currentDialoguePanelPrefab;
     public GameObject defaultDialoguePanelPrefab;
-
+    */
 
     private static DialogueBox dialogueBox;
 
@@ -40,9 +41,11 @@ public class DialogueBox : MonoBehaviour
         
         dialogueObject = GameObject.Instantiate(details.prefab, Vector3.zero, Quaternion.identity);
         dialogueObject.transform.parent = canvas.transform;
+        dialogueObject.transform.localPosition = Vector3.zero;
 
         dialogueObject.SetActive(true);
 
+        this.dialogue = dialogueObject.GetComponentInChildren<Text>();
         this.dialogue.text = details.text;
 
     }
