@@ -40,14 +40,7 @@ public class PlayerMovement : MonoBehaviour
         //Checking for Key inputs
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) //JUMP
         {
-            if (canClimb)
-            {
-                rb.gravityScale = 0f;
-                //pRigidbody.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezePositionY | RigidbodyConstraints2D.FreezeRotation;
-                climbing = true;
-                rb.velocity = new Vector2();
-            }
-            else if (grounded)
+            if (grounded && !canClimb)
             {
                 rb.AddForce(jumpVec * jumpForce, ForceMode2D.Impulse);
                 grounded = false; //Since they jumped they are no longer grounded
@@ -67,13 +60,14 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(new Vector3(input.x * speed, 0f, 0f), ForceMode2D.Force);
 
-        if(Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.KeypadEnter))
         {
             treeSpawn.SpawnTree();
         }
 
         if(climbing)
         {
+            rb.velocity = new Vector2();
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
             {
                 transform.Translate(new Vector2(0, climbSpeed * Time.deltaTime));

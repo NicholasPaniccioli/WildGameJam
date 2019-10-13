@@ -8,12 +8,14 @@ public class Vine : MonoBehaviour
     private GameObject spriteMask;
     private Vector3 velocity;
     public float growTime;
+    public float heightPercent;
     // Start is called before the first frame update
     void Start()
     {
         pm = GameObject.Find("Protagonist").GetComponent<PlayerMovement>();
         spriteMask = transform.GetChild(0).gameObject;
-        velocity = new Vector3(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y / growTime, 0);
+        growTime = heightPercent * 5;
+        velocity = new Vector3(0, gameObject.GetComponent<SpriteRenderer>().bounds.size.y * heightPercent / growTime, 0);
     }
 
     // Update is called once per frame
