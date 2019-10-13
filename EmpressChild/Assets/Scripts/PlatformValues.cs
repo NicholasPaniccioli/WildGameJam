@@ -43,8 +43,8 @@ public class PlatformValues : MonoBehaviour
 
             middleBlocks = new List<GameObject>();
 
-            float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x -0.01f;
-            float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y - 0.01f;
+            float midWorldWidth = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.x -0.05f;
+            float midWorldHeight = middlePrefab.GetComponent<SpriteRenderer>().sprite.bounds.size.y - 0.05f;
 
             if (horizontal)
             {
