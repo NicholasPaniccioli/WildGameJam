@@ -51,6 +51,7 @@ public class PlatformValues : MonoBehaviour
                 rightEnd.transform.position = new Vector3(rightEnd.GetComponent<SpriteRenderer>().sprite.bounds.size.x * transform.localScale.x * 1.4f, 0, 0) + transform.position;
                 leftEnd.transform.rotation = Quaternion.Euler(0, 0, 0);
                 rightEnd.transform.rotation = Quaternion.Euler(0, 0, 0);
+
                 // Scale
                 midWorldWidth *= transform.localScale.x;
                 midWorldHeight *= transform.localScale.y;

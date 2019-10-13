@@ -217,7 +217,7 @@ public class PlayerMovement : MonoBehaviour
         else if (collision.gameObject.tag == "Vine")
         {
             canClimb = false;
-            playerState = PlayerState.Falling;
+            EndClimb();
         }
     }
 }
