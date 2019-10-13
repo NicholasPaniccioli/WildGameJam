@@ -21,12 +21,14 @@ public class AnimationManager : MonoBehaviour
         switch(playerMovementScript.playerState)
         {
             case PlayerMovement.PlayerState.Running:
+                animator.speed = 1;
                 animator.SetBool("Running", true);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Jumping", false);
                 break;
 
             case PlayerMovement.PlayerState.Jumping:
+                animator.speed = 1;
                 animator.SetBool("Jumping", true);
                 animator.SetBool("Running", false);
                 animator.SetBool("Idle", false);
@@ -34,13 +36,15 @@ public class AnimationManager : MonoBehaviour
                 break;
 
             case PlayerMovement.PlayerState.Falling:
+                animator.speed = 1;
                 animator.SetBool("Falling", true);
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("Climbing", false);
                 break;
 
-            case PlayerMovement.PlayerState.Climbing:
+            case PlayerMovement.PlayerState.ActivelyClimbing:
+                animator.speed = 1;
                 animator.SetBool("Climbing", true);
                 animator.SetBool("Jumping", false);
                 animator.SetBool("Idle", false);
@@ -49,10 +53,15 @@ public class AnimationManager : MonoBehaviour
                 break;
 
             case PlayerMovement.PlayerState.Idle:
+                animator.speed = 1;
                 animator.SetBool("Idle", true);
                 animator.SetBool("Running", false);
                 animator.SetBool("Falling", false);
                 animator.SetBool("Climbing", false);
+                break;
+
+            case PlayerMovement.PlayerState.Climbing:
+                animator.speed = 0;
                 break;
         }
     }
