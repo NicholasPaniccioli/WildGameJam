@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
         Jumping,
         Climbing,
         Falling
-           
+
     }
     //Fields
 
