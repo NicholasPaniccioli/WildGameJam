@@ -20,10 +20,10 @@ public class PlayerMovement : MonoBehaviour
 
     //Attributes
     public float jumpForce = 5.0f; //The power the player has on their jump
-    public float climbSpeed = 2.5f; //How fast the player is able to climb
+    public float climbSpeed = 1.25f; //How fast the player is able to climb
     public Vector3 jumpVec = new Vector3(0.0f, 6.0f, 0.0f); //Vector for the jumpforce to be applied to
     public float speed = 40f;
-    public float maxVelocityX = 3f;
+    public float maxVelocityX = 2f;
     public FacingDirection facingDirection = FacingDirection.Right;
     public PlayerState playerState = PlayerState.Idle;
 
