@@ -188,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(rb.velocity.x) > .025)
         {
             facingDirection = rb.velocity.x > 0 ? FacingDirection.Right : FacingDirection.Left;
-            transform.localScale = facingDirection == FacingDirection.Right ? new Vector3(.15f, .15f, 1f) : new Vector3(-.15f, .15f, 1f);
+            transform.localScale = facingDirection == FacingDirection.Right ? new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, 1f) : new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, 1f);
         }
     }
     public void EndClimb()
