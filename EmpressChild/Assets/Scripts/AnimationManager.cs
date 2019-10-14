@@ -13,6 +13,7 @@ public class AnimationManager : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        //playerMovementScript = gameObject.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
