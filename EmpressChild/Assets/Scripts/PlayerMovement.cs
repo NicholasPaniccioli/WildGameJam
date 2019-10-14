@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         
-        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.KeypadEnter))
+        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Return))
         {
             treeSpawn.SpawnTree();
         }
@@ -170,7 +170,8 @@ public class PlayerMovement : MonoBehaviour
             //if(playerState == PlayerState.Climbing)
                 playerState = PlayerState.ActivelyClimbing;
         }
-        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
+        if(!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D)
+            && !Input.GetKey(KeyCode.UpArrow) && !Input.GetKey(KeyCode.LeftArrow) && !Input.GetKey(KeyCode.RightArrow))
         {
             //if (playerState == PlayerState.ActivelyClimbing)
                 playerState = PlayerState.Climbing;
