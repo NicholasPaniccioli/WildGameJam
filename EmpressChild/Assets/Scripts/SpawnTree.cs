@@ -64,6 +64,7 @@ public class SpawnTree : MonoBehaviour
             vine.GetComponent<Vine>().heightPercent = treeHight;
             growTime = .5f;
             velocity = new Vector3(0, -gameObject.GetComponent<SpriteRenderer>().bounds.size.y / growTime, 0);
+            gameObject.GetComponent<ParticleSystem>().enableEmission = false;
         }
     }
 }
