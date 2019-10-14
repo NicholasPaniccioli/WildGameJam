@@ -42,6 +42,7 @@ public class DialogueBox : MonoBehaviour
         dialogueObject = GameObject.Instantiate(details.prefab, Vector3.zero, Quaternion.identity);
         dialogueObject.transform.parent = canvas.transform;
         dialogueObject.transform.localPosition = Vector3.zero;
+        dialogueObject.transform.localScale = new Vector3(.75f, .75f, 1f);
 
         dialogueObject.SetActive(true);
 

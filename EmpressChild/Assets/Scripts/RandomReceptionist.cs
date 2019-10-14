@@ -7,12 +7,12 @@ public class RandomReceptionist : MonoBehaviour
 {
     public Sprite[] receptionists;
     public SpriteRenderer spriteRenderer;
+    public GameObject receptionist;
 
     // Start is called before the first frame update
     void OnEnable()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        SceneManager.sceneLoaded += RandomizeReceptionist;
+        spriteRenderer = receptionist.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -21,7 +21,11 @@ public class RandomReceptionist : MonoBehaviour
         
     }
 
-    private void RandomizeReceptionist(Scene scene, LoadSceneMode mode)
+     void OnTriggerEnter2D(Collider2D collision)
+    {
+        RandomizeReceptionist();
+    }
+    private void RandomizeReceptionist()
     {
         spriteRenderer.sprite = receptionists[Random.Range(0, receptionists.Length)];
         print("Working");
