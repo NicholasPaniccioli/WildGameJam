@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
 
         
-        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.KeypadEnter))
+        if(Input.GetKey(KeyCode.E) || Input.GetKey(KeyCode.Return))
         {
             treeSpawn.SpawnTree();
         }
