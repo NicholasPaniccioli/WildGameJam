@@ -5,40 +5,37 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MovingPlatformTest.unity
     guid: 05391daf2a080ff45b1500d9bc8bf0f8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/InsideBuilding.unity
     guid: 85bd5199f117ae142b8cb11925f05f83
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Parallax_Testing.unity
     guid: 94c9e74d08c0b62418d85a564e12720f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Rigged_Player.unity
     guid: 33c4f2fb5c84b954bb3d414239e1cb69
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing Ground.unity
     guid: f7465dc5ea9333946b3175d046a11799
   - enabled: 1
-    path: Assets/Scenes/ForestLevel 2.unity
-    guid: 28fafb60073a8a94ca7f6804d551ad71
-  - enabled: 1
     path: Assets/Scenes/ForestLevel 1.unity
     guid: 73090753a24f6244e9e1301ff2f30664
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel 2.unity
+    guid: 28fafb60073a8a94ca7f6804d551ad71
   - enabled: 1
     path: Assets/Scenes/ForestLevel 3.unity
     guid: 316842ab598287849bd7e26a3d69b13d
   - enabled: 1
     path: Assets/Scenes/ForestLevel 4.unity
     guid: 73202ccc2d678e947b87a9fc9e840a42
-  - enabled: 1
-    path: Assets/Scenes/CityScene_Outside.unity
-    guid: cb1226bbac825c84c8c50218ee8e2177
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/ForestLevel.unity
     guid: 4bbff7534cfd67449af28ac66e4041d4
   - enabled: 1
@@ -50,6 +47,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestLevel 7.unity
     guid: 54e86185ca3761d4abf1a3ce24998078
+  - enabled: 1
+    path: Assets/Scenes/CityScene_Outside.unity
+    guid: cb1226bbac825c84c8c50218ee8e2177
   - enabled: 1
     path: Assets/Scenes/CityScene_Inside.unity
     guid: c2218de8c87d3724fa201984a0cb35b0
