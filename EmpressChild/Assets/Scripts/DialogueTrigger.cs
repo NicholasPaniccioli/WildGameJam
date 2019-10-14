@@ -16,12 +16,6 @@ public class DialogueTrigger : MonoBehaviour
         dialogueManager = DialogueManager.Instance();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!aldreadyTriggered)
