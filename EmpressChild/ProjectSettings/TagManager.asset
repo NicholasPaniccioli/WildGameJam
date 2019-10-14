@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Vine
+  - Moving Object
   layers:
   - Default
   - TransparentFX

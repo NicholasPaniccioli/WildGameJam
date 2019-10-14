@@ -56,6 +56,11 @@ public class SpawnTree : MonoBehaviour
         {
             hasTree = true;
             GameObject vine = Instantiate(tree, transform.position + new Vector3(0, -tree.GetComponent<SpriteRenderer>().bounds.extents.y -.4f, 1), Quaternion.identity);
+            if(gameObject.transform.parent.tag == "Moving Object")
+            {
+                vine.transform.parent = gameObject.transform.parent;
+
+            }
             vine.GetComponent<Vine>().heightPercent = treeHight;
             growTime = .5f;
             velocity = new Vector3(0, -gameObject.GetComponent<SpriteRenderer>().bounds.size.y / growTime, 0);
