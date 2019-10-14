@@ -355,7 +355,7 @@ PrefabInstance:
     - target: {fileID: 35596000441152947, guid: e5beb964eeccb57478893a120ed47a4c,
         type: 3}
       propertyPath: dialogue
-      value: And dispite their best efforts, no one outside that shield will be able
+      value: And despite their best efforts, no one outside that shield will be able
         hurt you.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1433,11 +1433,6 @@ PrefabInstance:
       propertyPath: targetScene
       value: ForestLevel 5
       objectReference: {fileID: 0}
-    - target: {fileID: 7439700589956923333, guid: 7ccfaa309c03e16488cf8d4eb0336ac8,
-        type: 3}
-      propertyPath: maxVelocityX
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 7439700588492958481, guid: 7ccfaa309c03e16488cf8d4eb0336ac8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1452,6 +1447,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -3.2540002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7439700589956923333, guid: 7ccfaa309c03e16488cf8d4eb0336ac8,
+        type: 3}
+      propertyPath: maxVelocityX
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ccfaa309c03e16488cf8d4eb0336ac8, type: 3}
