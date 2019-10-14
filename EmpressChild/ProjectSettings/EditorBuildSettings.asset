@@ -35,4 +35,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestLevel 4.unity
     guid: 73202ccc2d678e947b87a9fc9e840a42
+  - enabled: 1
+    path: Assets/Scenes/CityScene_Outside.unity
+    guid: cb1226bbac825c84c8c50218ee8e2177
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel.unity
+    guid: 4bbff7534cfd67449af28ac66e4041d4
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel 5.unity
+    guid: 9ac4e62da98b94d47930898b665dc7fb
+  - enabled: 1
+    path: Assets/Scenes/ForestLevel 6.unity
+    guid: 695feb21a3335024290714742c753864
   m_configObjects: {}
